@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-public class EventControllerIT {
+class EventControllerIT {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -30,7 +30,7 @@ public class EventControllerIT {
 	private ObjectMapper objectMapper;
 	
 	@Test
-	public void updateShouldUpdateResourceWhenIdExists() throws Exception {
+	void updateShouldUpdateResourceWhenIdExists() throws Exception {
 
 		long existingId = 1L;
 		
@@ -53,19 +53,16 @@ public class EventControllerIT {
 	}
 
 	@Test
-	public void updateShouldReturnNotFoundWhenIdDoesNotExist() throws Exception {
+	void updateShouldReturnNotFoundWhenIdDoesNotExist() throws Exception {
 
 		long nonExistingId = 1000L;
-		
+
 		EventDTO dto = new EventDTO(null, "Expo XP", LocalDate.of(2021, 5, 18), "https://expoxp.com.br", 7L);
 		String jsonBody = objectMapper.writeValueAsString(dto);
-		
-		ResultActions result =
-				mockMvc.perform(put("/events/{id}", nonExistingId)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
-		
+
+		ResultActions result = mockMvc.perform(put("/events/{id}", nonExistingId).content(jsonBody)
+				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON));
+
 		result.andExpect(status().isNotFound());
 	}
 }

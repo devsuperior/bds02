@@ -31,7 +31,7 @@ public class CityControllerIT {
 	private ObjectMapper objectMapper;
 	
 	@Test
-	public void findAllShouldReturnAllResourcesSortedByName() throws Exception {
+	 void findAllShouldReturnAllResourcesSortedByName() throws Exception {
 		
 		ResultActions result =
 				mockMvc.perform(get("/cities")
@@ -44,7 +44,7 @@ public class CityControllerIT {
 	}
 	
 	@Test
-	public void insertShouldInsertResource() throws Exception {
+	 void insertShouldInsertResource() throws Exception {
 
 		CityDTO dto = new CityDTO(null, "Recife");
 		String jsonBody = objectMapper.writeValueAsString(dto);
@@ -61,7 +61,7 @@ public class CityControllerIT {
 	}
 
 	@Test
-	public void deleteShouldReturnNoContentWhenIndependentId() throws Exception {		
+	 void deleteShouldReturnNoContentWhenIndependentId() throws Exception {		
 		
 		Long independentId = 5L;
 		
@@ -73,7 +73,7 @@ public class CityControllerIT {
 	}
 
 	@Test
-	public void deleteShouldReturnNotFoundWhenNonExistingId() throws Exception {		
+	 void deleteShouldReturnNotFoundWhenNonExistingId() throws Exception {		
 
 		Long nonExistingId = 50L;
 		
@@ -85,7 +85,7 @@ public class CityControllerIT {
 
 	@Test
 	@Transactional(propagation = Propagation.NEVER) 
-	public void deleteShouldReturnBadRequestWhenDependentId() throws Exception {		
+	 void deleteShouldReturnBadRequestWhenDependentId() throws Exception {		
 
 		Long dependentId = 1L;
 		

@@ -7,6 +7,7 @@ import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -40,10 +41,10 @@ public class CityService {
 	public void delete(Long id){
 		try {
 			cityRepository.deleteById(id);
-		}catch (DataIntegrityViolationException e) {
-			throw new DataBaseException("erro");
-		}catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException("Id: " + id + " not found");
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("ID: " + id + " not found.");
+		} catch (DataIntegrityViolationException e) {
+			throw new DataBaseException("Integrity violation");
 		}
 	}
 	

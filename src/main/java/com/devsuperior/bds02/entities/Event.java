@@ -69,6 +69,7 @@ public class Event {
 	}
 
 	public City getCity() {
+		
 		return city;
 	}
 

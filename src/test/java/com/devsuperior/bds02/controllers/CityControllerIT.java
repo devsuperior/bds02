@@ -58,6 +58,7 @@ public class CityControllerIT {
 		result.andExpect(status().isCreated());
 		result.andExpect(jsonPath("$.id").exists());
 		result.andExpect(jsonPath("$.name").value("Recife"));
+
 	}
 
 	@Test

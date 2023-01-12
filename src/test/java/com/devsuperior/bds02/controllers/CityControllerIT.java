@@ -81,6 +81,7 @@ public class CityControllerIT {
 				mockMvc.perform(delete("/cities/{id}", nonExistingId));
 
 		result.andExpect(status().isNotFound());
+		result.andExpect(jsonPath("$.message").isNotEmpty());
 	}
 
 	@Test

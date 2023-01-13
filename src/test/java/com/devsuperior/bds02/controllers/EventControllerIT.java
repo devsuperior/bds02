@@ -67,5 +67,6 @@ public class EventControllerIT {
 					.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isNotFound());
+		result.andExpect(jsonPath("$.message").isNotEmpty());
 	}
 }

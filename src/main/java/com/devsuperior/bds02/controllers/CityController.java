@@ -24,7 +24,7 @@ public class CityController {
 	@Autowired
 	private CityService service;
 
-	@GetMapping
+	@GetMapping //Retorna uma lista com as cidades. 
 	public ResponseEntity<List<CityDTO>> findAll() {
 		List<CityDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);

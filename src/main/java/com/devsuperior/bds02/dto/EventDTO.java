@@ -33,7 +33,7 @@ public class EventDTO implements Serializable {
 		cityId = entity.getCity().getId();
 	}
 
-	public Long getId() {
+    public Long getId() {
 		return id;
 	}
 

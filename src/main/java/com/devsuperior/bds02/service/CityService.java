@@ -13,8 +13,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -29,6 +29,11 @@ public class CityService {
                 .stream()
                 .map(cityMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public City getCityById(final Long id) {
+        return cityRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Resource not found"));
     }
 
     public CityDTO saveCity(final City request) {

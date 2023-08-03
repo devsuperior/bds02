@@ -1,6 +1,7 @@
 package com.devsuperior.bds02.entities;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

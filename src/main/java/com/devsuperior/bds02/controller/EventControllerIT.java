@@ -1,7 +1,6 @@
 package com.devsuperior.bds02.controller;
 
 import com.devsuperior.bds02.dto.EventDTO;
-import com.devsuperior.bds02.entities.Event;
 import com.devsuperior.bds02.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;

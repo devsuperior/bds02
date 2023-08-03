@@ -1,6 +1,7 @@
 package com.devsuperior.bds02.controller;
 
 import com.devsuperior.bds02.dto.CityDTO;
+import com.devsuperior.bds02.dto.mapper.cityMapper;
 import com.devsuperior.bds02.entities.City;
 import com.devsuperior.bds02.service.CityService;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +40,8 @@ public class CityControllerIT {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CityDTO saveCity(@RequestBody final City request) {
-        return cityService.saveCity(request);
+    public CityDTO saveCity(@RequestBody final CityDTO request) {
+        return cityService.saveCity(cityMapper.toEntity(request));
     }
 
     @DeleteMapping("/{id}")

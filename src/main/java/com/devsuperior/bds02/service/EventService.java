@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class EventService {
     private final EventRepository eventRepository;
-    private final CityService cityService;
+    // private final CityService cityService;
 
     @Transactional
     public EventDTO updateEvent(final Long id,final EventDTO response) {
